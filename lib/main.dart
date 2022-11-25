@@ -1,27 +1,30 @@
 import 'package:flutter/material.dart';
+import './question.dart';
 
 // void main() {
 //   runApp(MyApp());
 // }
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
-    return MyAppState();
+    return _MyAppState();
   }
 }
 
-class MyAppState extends State<MyApp> {
-  var questionIndex = 0;
+class _MyAppState extends State<MyApp> {
+  var _questionIndex = 0;
 
   void answerQuestion() {
     setState(() {
-      questionIndex++;
+      _questionIndex++;
     });
     print('Answer Chosen');
-    print(questionIndex);
+    print(_questionIndex);
   }
 
   @override
@@ -33,16 +36,24 @@ class MyAppState extends State<MyApp> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Testing App'),
+          title: const Text('Testing App'),
         ),
         body: Column(
           children: [
-            Text(
-              question[questionIndex],
+            Question(
+              question[_questionIndex],
             ),
-            ElevatedButton(child: Text('Answer 1'), onPressed: answerQuestion),
-            ElevatedButton(child: Text('Answer 2'), onPressed: answerQuestion),
-            ElevatedButton(child: Text('Answer 3'), onPressed: answerQuestion),
+            ElevatedButton(
+              onPressed: answerQuestion,
+              child: Padding(
+                padding: EdgeInsets.all(16.0),
+                child: Text('Answer 1'),
+              ),
+            ),
+            ElevatedButton(
+                onPressed: answerQuestion, child: const Text('Answer 2')),
+            ElevatedButton(
+                onPressed: answerQuestion, child: const Text('Answer 3')),
           ],
         ),
       ),
