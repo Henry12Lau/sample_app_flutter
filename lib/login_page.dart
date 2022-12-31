@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -20,21 +21,20 @@ class _LoginPageState extends State<LoginPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Icon(
-                Icons.phone_android,
+                Icons.android,
                 size: 100,
               ),
               SizedBox(height: 75),
-              // Hello again!
+              // Hello again!   ，    ⋯
               Text(
                 'Hello Again!',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 36,
+                style: GoogleFonts.bebasNeue(
+                  fontSize: 52,
                 ),
               ),
               SizedBox(height: 10),
               Text(
-                'Welcom back, you\'ve been missed!',
+                'Welcome back, you\'ve been missed!',
                 style: TextStyle(
                   fontSize: 20,
                 ),
